@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 .header {
-  height: 250px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   border: 3px solid purple;
@@ -10,11 +10,14 @@
   justify-content: flex-start;
 }
 #logo {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   margin-top: 20px;
 }
 #titre {
   margin-top: -10px;
   color: #459936;
+}
+h1 {
+  font-size: 150%;
 }
