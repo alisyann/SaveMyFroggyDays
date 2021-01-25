@@ -8,6 +8,10 @@ const Result = () => {
     <div className="result">
       <Today />
       <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
     </div>
   );
 };

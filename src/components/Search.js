@@ -5,12 +5,16 @@ import Image from "../Image/search.png";
 const Search = () => {
   return (
     <div id="searchFunction">
+      <div id="filterInput">
       <button id="filter">
         <img src={Img} alt="logo setting" id="setting" />
       </button>
+      
       <input id="city" type="text" placeholder="Where are you ?"></input>
-      <button onClick={console.log("ok")} id="send">
-        <img src={Image} alt="logo search" id="search"></img>
+      </div>
+      <button onClick={console.log("ok")} id="search">
+        <img src={Image} alt="logo search" id="searchLogo"></img>
+        <p id="send">Search</p>
       </button>
     </div>
   );
