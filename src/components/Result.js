@@ -6,7 +6,11 @@ import "./Result.css";
 const Result = () => {
   return (
     <div className="result">
-      <Today />
+      {/* <Today /> */}
+      <Card />
+      <Card />
+      <Card />
+      <Card />
       <Card />
       <Card />
       <Card />

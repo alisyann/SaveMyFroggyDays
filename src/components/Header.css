@@ -1,7 +1,10 @@
 .header {
-  height: 250px;
+  height: 100px;
   display: flex;
   align-items:center;
+  /* -webkit-box-shadow: 0 6px 6px #F8FCFE;
+  -moz-box-shadow: 0 6px 6px #F8FCFE;
+  box-shadow: 0 6px 6px #F8FCFE; */
  
  
 }
@@ -10,12 +13,12 @@
   color: #459936;
 }
 h1 {
-  font-size: 300%;
+  font-size: 120%;
 }
 #logo {
-  width: 200px;
-  height: 200px;
-  margin-left:50px;
+  width: 60px;
+  height: 60px;
+  margin-left:20px;
 }
 
 
