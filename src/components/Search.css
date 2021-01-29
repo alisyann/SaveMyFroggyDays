@@ -1,11 +1,12 @@
 #searchFunction {
-  background:  #B6ECFC;
+  background-color:  #B6ECFC;
   display: flex;
   flex-direction:column;
   justify-content: center;
   align-items: center; 
   height: 400px;
   padding-top:50px;
+  margin:0px;
 }
 .discoverActivity{
   font-size:50px;
@@ -47,6 +48,9 @@ margin-bottom:30px;
   font-size:110%;
   margin:50px;
 }
+#send:hover{
+  cursor:pointer;
+}
 input:focus{
   outline:none;
   border-color: inherit;
@@ -77,9 +81,15 @@ button:focus{
   
 }
 #setting {
-  width: 20px;
-  height: 20px;
+  width: 35px;
+  height: 35px;
   margin-left: 20px;
+  padding:5px;
+}
+#setting:hover{
+  background:#eff7f6;
+  border-radius:10%;
+  cursor:pointer; 
 }
 .textCategories{
   color: #707070;

@@ -2,9 +2,9 @@
   height: 100px;
   display: flex;
   align-items:center;
-  /* -webkit-box-shadow: 0 6px 6px #F8FCFE;
-  -moz-box-shadow: 0 6px 6px #F8FCFE;
-  box-shadow: 0 6px 6px #F8FCFE; */
+  /* -webkit-box-shadow: 0 6px 6px black;
+  -moz-box-shadow: 0 6px 6px black;
+  box-shadow: 0px 6px 6px black; */
  
  
 }
