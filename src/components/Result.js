@@ -27,6 +27,7 @@ async function request(cityName, offset = 0) {
       arrayActivities.push(activitiesData);
     }
   }
+  console.log();
   return arrayActivities;
 }
 const Result = (props) => {
@@ -59,12 +60,14 @@ const Result = (props) => {
                   Last
                 </button>
               ) : null}
-              <button
-                className="buttonChangePage"
-                onClick={() => handlePage(true)}
-              >
-                Next
-              </button>
+              {arrayActivities.length >= limit ? (
+                <button
+                  className="buttonChangePage"
+                  onClick={() => handlePage(true)}
+                >
+                  Next
+                </button>
+              ) : null}
             </div>
           </>
         ) : null}

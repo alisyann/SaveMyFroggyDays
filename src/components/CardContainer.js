@@ -4,8 +4,8 @@ const CardContainer = (props) => {
     props.arrayActivities === "404" ? (
       <h2 id="error404">Sorry we did not find any city with that name 🐸</h2>
     ) : (
-      props.arrayActivities.map((act) => (
-        <li className="listCard" key={act.xid}>
+      props.arrayActivities.map((act, i) => (
+        <li className="listCard" key={i}>
           <div className="card">
             <div className="cardContent">
               <img
