@@ -8,7 +8,11 @@ const CardContainer = (props) => {
         <li className="listCard" key={act.xid}>
           <div className="card">
             <div className="cardContent">
-              <img className="actImg" src={act.preview.source} alt={act.name} />
+              <img
+                className="actImg"
+                src={act.preview ? act.preview.source : null}
+                alt={act.name}
+              />
               <div className="titre">
                 <h3>{act.name}</h3>
               </div>
