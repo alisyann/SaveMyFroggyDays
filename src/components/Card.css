@@ -1,10 +1,8 @@
 .card {
   height: 250px;
-  border: 3px solid orange;
   margin-top: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-wrap:wrap;
 }
 .cardContent {
   height: 200px;

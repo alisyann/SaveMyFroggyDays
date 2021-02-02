@@ -1,0 +1,38 @@
+.filter{
+    width:70%;
+    border: 1px solid #eff7f6;
+    height: 300px;
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    margin-top:100px;
+    margin-left:200px;
+    margin-right:200px;
+    background:rgb(157, 204, 58, 0.05);
+    border-radius: 20px;
+}
+
+.categories,
+.specificities{
+    height:250px;
+    width: 50%;
+    display:flex;
+    flex-direction: column;
+    font-weight:bolder;
+    margin-left:30px;
+    color:#459936;
+}
+.choices{
+    color: #707070;
+    display: flex;
+    flex-wrap:wrap
+}
+.choices p {
+    margin-right:30px;
+}
+.categories{
+    border-right:1px solid #707070;
+}
+.titleFilter{
+    font-size: 110%;
+}

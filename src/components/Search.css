@@ -1,40 +1,155 @@
-#send {
-  border-radius: 10px;
-  margin-left: -20px;
-  color: #459936;
-  background: #edfbff;
-  border: none;
-  height: 30px;
-}
-#search {
-  height: 20px;
-}
-#city {
-  height: 30px;
-  background: #edfbff;
-  border: none;
-}
-/* 
-input::-webkit-input-placeholder {
-  color: #9dcc3a !important;
-} */
-#filter {
-  border-radius: 10px;
-  border: 1px solid white;
-  background-color: white;
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-}
-#setting {
-  width: 25px;
-  height: 25px;
-}
 #searchFunction {
-  border: 3px solid purple;
-  margin-top: 20px;
+  background-color:  #B6ECFC;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center; 
+  height: 400px;
+  padding-top:50px;
+  margin:0px;
+}
+.discoverActivity{
+  font-size:50px;
+  font-weight: bold;
+  color:#EFF7F6;
+  margin:0px;
+}
+.descriptionDiscover{
+color:#707070;
+font-weight: bold;
+margin-bottom:30px;
+}
+.inputSearchBar{
+  background: white;
   display: flex;
   justify-content: center;
+  width:150%;
+  height: 70px;
   align-items: center;
-  height: 80px;
+  border-radius:50px;
+}
+.locationSearchBar{
+  width:100%;
+}
+.formInput{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+#send {
+  border-radius: 10px;
+  color:white;
+  background: #9dcc3a;
+  border: none;
+  height: 40px;
+  width:150px;
+  font-weight:bold;
+  font-size:110%;
+  margin:50px;
+}
+#send:hover{
+  cursor:pointer;
+}
+input:focus{
+  outline:none;
+  border-color: inherit;
+  background:none;
+}
+button:focus{
+  outline:none;
+  border-color: inherit;
+}
+#city,
+#country {
+  width:45%;
+  height: 40px;
+  border: none;
+  font-size:100%;
+  border-right:1px solid #707070;
+  margin-left: 20px;
+}
+#filterDescription {
+  border: none;
+  width: 40%;
+  height: 60px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:100%;
+  
+}
+#setting {
+  width: 35px;
+  height: 35px;
+  margin-left: 20px;
+  padding:5px;
+}
+#setting:hover{
+  background:#eff7f6;
+  border-radius:10%;
+  cursor:pointer; 
+}
+.textCategories{
+  color: #707070;
+  font-size: 100%;
+}
+
+
+@media (min-width:500px){
+
+  #search {
+    display:none;
+  }
+}
+@media (max-width:500px){
+  #send,
+  #textFilter{
+  display:none; 
+  }
+  .discoverActivity,
+  .descriptionDiscover{
+    display:none;
+  }
+  #searchFunction {
+    background: white;
+    margin-top: 20px;
+    display: flex;
+    flex-direction:column;
+    height: 80px;
+  }
+.inputSearchBar{
+    background:white;
+    display: flex;
+    width:330px;
+    height: 40px;
+    align-items: center;
+    border-radius:5px;
+    margin-bottom:40px;
+  }
+  #city,
+  #country{
+    width:45%;
+    height: 40px;
+    border: none;
+    font-size:100%;
+    margin-left: 0px;
+    background: #edfbff;
+  }
+  #city{
+    padding-left: 10px;
+  }
+  #setting {
+    width: 25px;
+    height: 25px;
+    background:white;
+  }
+  #filterDescription{
+  background:white;
+  padding:0px;
+  margin-left: 0px;
+  margin-right:15px;
+  width:0%;
+  }
 }
