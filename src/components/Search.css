@@ -150,7 +150,6 @@ button:focus{
 }
 
 @media (max-width:500px){
-  #send,
   #textFilter{
   display:none; 
   }
@@ -213,5 +212,18 @@ button:focus{
   }
   #filterDescription{
   width:100%;
+  }
+  #send {
+    display: block;
+    border-radius: 10px;
+    color:white;
+    background: #459936;
+    border: none;
+    height: 30px;
+    width:110px;
+    font-weight:bold;
+    font-size:100%;
+    margin-top:10px;
+    margin-bottom:15px;
   }
 }

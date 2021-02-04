@@ -1,24 +1,22 @@
 .filter{
     width:70%;
-    border: 1px solid #eff7f6;
-    height: 300px;
+    height: auto;
     display:flex;
-    justify-content: space-around;
     align-items:center;
     margin-top:20px;
     background:white;
     border-radius: 50px;
-    box-shadow: 2px 2px 5px lightgrey;
+    /* box-shadow: 2px 2px 5px lightgrey; */
 }
 
-.categories,
-.specificities{
-    height:250px;
-    width: 50%;
+.categories{
+    height:auto;
+    width: auto;
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     font-weight:bolder;
-    margin-left:20px;
     color:#459936;
 }
 .choices{
@@ -26,6 +24,7 @@
     display: flex;
     flex-wrap:wrap;
     list-style: none;
+    justify-content: center;
 
 }
 .choices li {
@@ -39,7 +38,13 @@
     margin-right:30px;
 }
 .titleFilter{
+    display:none;
     font-size: 110%;
+}
+.iconCategories{
+    display: flex;
+    align-items:center;
+    margin-left: 3px;
 }
 @media(max-width:768px){
 .filter{
@@ -55,8 +60,7 @@
     width:40%;
     border-radius: 0px;
 }
-.categories,
-.specificities{
+.categories{
     height:auto;
     width: 100%;
     display:flex;
@@ -79,9 +83,13 @@
 margin-left:0px;
 padding:0px;
 }
+.titleFilter{
+    display:flex;
+    font-size: 110%;
+}
 }
 @media (max-width:500px){
-    .filter{
+.filter{
         display: flex;
         height:100%;
         flex-direction: column;
@@ -91,19 +99,20 @@ padding:0px;
         top:0;
         left:0;
         background:#EFF7F6;
-        width:50%;
+        width:60%;
         border-radius: 0px;
 }
-.categories,
-.specificities{
+.categories{
     height:auto;
     width: 100%;
     display:flex;
     justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
     font-weight:bolder;
     color:#459936;
     margin-top:10px;
+    font-size:18px;
 }
 .categories{
     border-right:none;
@@ -113,6 +122,7 @@ padding:0px;
     display: flex;
     flex-direction:column;
     flex-wrap:nowrap;
+    font-size:18px;
 }
 .choices li{
 margin-left:0px;

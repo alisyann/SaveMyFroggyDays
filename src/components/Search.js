@@ -27,14 +27,14 @@ const Search = (props) => {
         
        
         <div id='filterDescription'>
-          <p id='textFilter'> Specificities</p>
+          <p id='textFilter'> Categories</p>
         <img src={Img} alt="setting" id="setting" onClick={()=>setShow(!show)}></img>
         </div>
        </div>
        {showwhen?<When />:null}
        {show?<Filter />:null}
       <button type="submit"  id="send"> Search
-        <img src={Image} alt="logo search" id="search"></img>
+        {/* <img src={Image} alt="logo search" id="search"></img> */}
       </button>
       <div className='errorWeather'>{props.error? error(): null}</div>
       </form>
