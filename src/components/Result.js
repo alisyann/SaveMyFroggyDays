@@ -76,7 +76,7 @@ const Result = (props) => {
     next ? setOffset(offset + 10) : setOffset(offset - 10);
     window.scrollTo(0, 0);
   };
-  console.log("poulet 01 :", arrayActivities);
+
   return (
     <div className="searchAndResult">
       <div className="result">
@@ -87,7 +87,6 @@ const Result = (props) => {
             </h2>
           ) : (
             <>
-              {arrayActivities ? arrayActivities.length : "null"}
               <CardContainer arrayActivities={arrayActivities} />
               <div id="divButtonsChangePage">
                 <button

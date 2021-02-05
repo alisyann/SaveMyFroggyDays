@@ -1,12 +1,5 @@
 import "./CardContainer.css";
-import { useEffect } from "react";
 const CardContainer = (props) => {
-  useEffect(() => {
-    document.title = `You clicked ${
-      props.arrayActivities ? props.arrayActivities.length : "null"
-    } times`;
-  }, [props]);
-
   const printActivities = props.arrayActivities ? (
     props.arrayActivities === "404" ? (
       <h2 id="error404">Sorry we did not find any city with that name 🐸</h2>
