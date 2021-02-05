@@ -4,7 +4,7 @@
   flex-direction:column;
   justify-content: center;
   align-items: center; 
-  height: 400px;
+  height: auto;
   padding-top:50px;
   margin:0px;
 }
@@ -23,7 +23,7 @@ margin-bottom:30px;
   background: white;
   display: flex;
   justify-content: center;
-  width:150%;
+  width: 120vh;
   height: 70px;
   align-items: center;
   border-radius:50px;
@@ -36,6 +36,10 @@ margin-bottom:30px;
   flex-direction:column;
   align-items: center;
 }
+.letsGo{
+  font-weight: bold;
+  color:#707070;
+}
 
 #send {
   border-radius: 10px;
@@ -46,7 +50,8 @@ margin-bottom:30px;
   width:150px;
   font-weight:bold;
   font-size:110%;
-  margin:50px;
+  margin-top:50px;
+  margin-bottom:15px;
 }
 #send:hover{
   cursor:pointer;
@@ -60,25 +65,34 @@ button:focus{
   outline:none;
   border-color: inherit;
 }
-#city,
-#country {
-  width:45%;
-  height: 40px;
+.locationSearchBar{
+  width:33%;
+  margin:0px;
+  border-right:1px solid #707070;
+}
+#city{
+  width: 100%;
   border: none;
   font-size:100%;
+  background:none;
+  margin-left:20px;
+}
+.when{
+  width:33%;
   border-right:1px solid #707070;
-  margin-left: 20px;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 #filterDescription {
   border: none;
-  width: 40%;
-  height: 60px;
+  width: 33%;
   margin-right: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size:100%;
-  
 }
 #setting {
   width: 35px;
@@ -96,15 +110,46 @@ button:focus{
   font-size: 100%;
 }
 
-
+.errorWeather{
+  margin-top:0px;
+  margin-bottom:15px;
+}
+@media (max-width:1024px){
+  .inputSearchBar{
+    background: white;
+    display: flex;
+    justify-content: center;
+    width: 80vh;
+    height: 70px;
+    align-items: center;
+    border-radius:50px;
+  }
+  .letsGo{
+    display:none;
+  }
+}
+@media (max-width:768px){
+  .inputSearchBar{
+    background: white;
+    display: flex;
+    justify-content: center;
+    width: 60vh;
+    height: 70px;
+    align-items: center;
+    border-radius:50px;
+  }
+   .formInput{
+    font-size:80%;
+  }
+}
 @media (min-width:500px){
 
   #search {
     display:none;
   }
 }
+
 @media (max-width:500px){
-  #send,
   #textFilter{
   display:none; 
   }
@@ -114,42 +159,71 @@ button:focus{
   }
   #searchFunction {
     background: white;
-    margin-top: 20px;
-    display: flex;
-    flex-direction:column;
-    height: 80px;
+    height: 40%;
+    width:100%;
   }
+.formInput{
+  width:100%;
+  height:100%;
+  margin:0px;
+}
 .inputSearchBar{
-    background:white;
-    display: flex;
-    width:330px;
-    height: 40px;
-    align-items: center;
-    border-radius:5px;
-    margin-bottom:40px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap:5px;
+    width:95%;
+    height: 100%;
+
+    
   }
-  #city,
-  #country{
-    width:45%;
-    height: 40px;
+  .when{
+    border:none;
+    background:#9DCC3A;
+    width:100%;
+    grid-column: 1;
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    border-radius:5px;
+    color:white;
+   
+  }
+  .locationSearchBar{
+    border:none;
+    width:100%;
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+  #city{
+    width:100%;
+    height: 45px;
     border: none;
     font-size:100%;
     margin-left: 0px;
     background: #edfbff;
+    border-radius:5%;
   }
-  #city{
-    padding-left: 10px;
-  }
+
   #setting {
-    width: 25px;
-    height: 25px;
-    background:white;
+    width: 35px;
+    height: 35px;
+    grid-column: 5;
+    grid-row: 1;
   }
   #filterDescription{
-  background:white;
-  padding:0px;
-  margin-left: 0px;
-  margin-right:15px;
-  width:0%;
+  width:100%;
+  }
+  #send {
+    display: block;
+    border-radius: 10px;
+    color:white;
+    background: #459936;
+    border: none;
+    height: 30px;
+    width:110px;
+    font-weight:bold;
+    font-size:100%;
+    margin-top:10px;
+    margin-bottom:15px;
   }
 }
