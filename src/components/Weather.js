@@ -8,7 +8,7 @@ class Weather extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      response: false
+      response: false,
     };
   }
   //   minMaxTemp(min, max){
@@ -16,19 +16,25 @@ class Weather extends React.Component {
   //     //     return (<span className='minMaxTemp'>{props.tempMin}&deg; / {props.tempMax}&deg; </span>)
   //     // }
   // };
-  getWeather = async e => {
+  getWeather = async (e) => {
     e.preventDefault();
     const apiKey = "9d986c82c3977e89a2551fa521df3cb1";
 
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
     if (city && country) {
-      const apiCall = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${apiKey}`
-      );
-      const response = await apiCall.json();
+      const response = await fetch(
+        `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${apiKey}`,
+      ).then((res) => res.json());
       this.setState({ response: response });
+      if (this.state.response.cod === "404") {
+        this.props.passCity("404");
+        return;
+      }
       this.props.passCity(this.state.response.name);
+      this.props.passRain(
+        this.state.response.weather[0].description.includes("rain"),
+      );
     } else {
       this.setState({ response: "error" });
     }
