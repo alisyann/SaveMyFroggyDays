@@ -7,11 +7,13 @@ import Weather from "./components/Weather";
 // eslint-disable-next-line no-undef
 const App = () => {
   const [city, setCity] = useState("");
+  const [rain, setRain] = useState(false);
+
   return (
     <div className="App">
       <Header />
-      <Weather passCity={setCity} />
-      <Result city={city} />
+      <Weather passCity={setCity} passRain={setRain} />
+      <Result city={city} rain={rain} />
     </div>
   );
 };
