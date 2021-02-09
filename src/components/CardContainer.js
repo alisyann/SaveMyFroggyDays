@@ -1,11 +1,16 @@
 import "./CardContainer.css";
-const CardContainer = (props) => {
+import Img from "../Image/iconWiki.png";
+const CardContainer = props => {
   const printActivities = props.arrayActivities ? (
     props.arrayActivities === "404" ? (
       <h2 id="error404">Sorry we did not find any city with that name 🐸</h2>
     ) : (
       props.arrayActivities.map((act, i) => (
-        <li className="listCard" key={i}>
+        <li
+          className="listCard"
+          key={i}
+          onClick={() => window.open(act.wikipedia)}
+        >
           <div className="card">
             <div className="cardContent">
               <img
@@ -15,6 +20,10 @@ const CardContainer = (props) => {
               />
               <div className="titre">
                 <h3>{act.name}</h3>
+                <div className="logo">
+                  <img className="logoImg" src={Img} alt="Icone Wikipedia" />
+                  <p>Wikipédia</p>
+                </div>
               </div>
             </div>
           </div>
