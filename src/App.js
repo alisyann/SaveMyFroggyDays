@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Result from "./components/Result";
 import Weather from "./components/Weather";
+import Geolocation from "./components/Geolocation";
 
 // eslint-disable-next-line no-undef
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
       <Header />
       <Weather passCity={setCity} />
       <Result city={city} />
+      <Geolocation />
     </div>
   );
 };
