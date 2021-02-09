@@ -1,4 +1,5 @@
 import "./CardContainer.css";
+handleClick = (card) => {}
 const CardContainer = (props) => {
   const printActivities = props.arrayActivities ? (
     props.arrayActivities === "404" ? (
@@ -7,7 +8,7 @@ const CardContainer = (props) => {
       props.arrayActivities.map((act, i) => (
         <li className="listCard" key={i}>
           <div className="card">
-            <div className="cardContent">
+            <div className="cardContent" onClick={this.handleClick}>
               <img
                 className="actImg"
                 src={act.preview ? act.preview.source : null}
