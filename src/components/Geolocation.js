@@ -34,7 +34,7 @@ class Geolocation extends React.Component {
   
   render() {
     return (
-      <div class="Geolocation">
+      <div className="Geolocation">
         <p>latitude: {this.state.latitude}</p>
         <p>longitude: {this.state.longitude}</p>
       </div>
