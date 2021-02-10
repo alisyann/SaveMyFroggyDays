@@ -1,8 +1,18 @@
 * {
   box-sizing: border-box;
+  background-color: rgb(165, 199, 178);
 }
 .App {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+clear sky
+few clouds
+scattered clouds
+broken clouds
+shower rain
+rain
+thunderstorm
+snow
+mist

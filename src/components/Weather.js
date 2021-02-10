@@ -1,6 +1,7 @@
 import React from "react";
 import "./Weather.css";
 
+
 import Search from "./Search";
 //api call api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=9d986c82c3977e89a2551fa521df3cb1
 
@@ -42,6 +43,7 @@ class Weather extends React.Component {
   render() {
     return (
       <div className="containerMeteo">
+        <div className="poulet"></div>
         <Search
           loadweather={this.getWeather}
           error={this.state.response === "error"}
@@ -52,13 +54,14 @@ class Weather extends React.Component {
               <span className="meteoIcon">
                 <img
                   src={`http://openweathermap.org/img/wn/${this.state.response.weather[0].icon}.png`}
+                  
                   className={this.state.response.weather[0].icon}
                   id="iconMeteo"
                   alt={this.state.response.weather[0].description}
                 />
+                
               </span>
             </div>
-
             <div className="cityAndDeg">
               <p className="cityMeteo">{this.state.response.name}</p>
               <p className="descriptionMeteo">
