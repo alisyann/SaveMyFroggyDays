@@ -7,7 +7,6 @@ class Geolocation extends React.Component {
     this.state = {
       latitude: "",
       longitude: "",
-      userAdress: "",
     };
     this.getLocation = this.getLocation.bind(this)
     this.getCoordinates = this.getCoordinates.bind(this)
@@ -25,7 +24,7 @@ class Geolocation extends React.Component {
     }
   }
   getCoordinates(position){
-    console.log(position.coords.latitude, position.coords.longitude)
+   // console.log(position.coords.latitude, position.coords.longitude)
     this.setState({
       latitude: position.coords.latitude,
       longitude: position.coords.longitude
