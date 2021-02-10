@@ -31,6 +31,7 @@ class Weather extends React.Component {
     const response = await apiCall.json();
     this.setState({ response: response });
     this.props.passCity(this.state.response.name);
+    this.props.passIcon(this.state.response.weather[0].icon)
   } else {
     this.setState({ response: "error" });
   }

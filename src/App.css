@@ -1,18 +1,45 @@
 * {
   box-sizing: border-box;
-  background-color: rgb(165, 199, 178);
+  
 }
 .App {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-clear sky
-few clouds
-scattered clouds
-broken clouds
-shower rain
-rain
-thunderstorm
-snow
-mist
+
+.i01d, .i01n{
+  background-color: pink;
+  }
+
+.i02d, .i02n{
+    background-color: red;
+    }
+
+.i03d, .i03n{
+      background-color: orange;
+      }
+
+.i04d, .i04n {
+    background-color: blue;
+  }
+
+.i09d, .i09n {
+    background-color: darkgray;
+  }
+
+.i10d, .i10n {
+    background-color: brown;
+  }
+
+.i11d, .i11n {
+    background-color: yellow;
+  }
+
+  .i13d, .i13n {
+    background-color: green;
+  }
+
+.i50d, .i50n {
+    background-color: purple;
+  }
