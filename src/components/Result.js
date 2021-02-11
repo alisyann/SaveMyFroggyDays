@@ -48,7 +48,15 @@ const Result = (props) => {
                 activitiesData.kinds.includes("historic") ||
                 activitiesData.kinds.includes("architecture") ||
                 activitiesData.kinds.includes("urban_environment")
-              ))
+              )) &&
+            (!props.checkedAdult || !activitiesData.kinds.includes("adult")) &&
+            (!props.checkedRelig ||
+              !activitiesData.kinds.includes("interesting_places/religion")) &&
+            (!props.checkedRest ||
+              !activitiesData.kinds.includes("tourist_facilities/foods")) &&
+            (!props.checkedSport || !activitiesData.kinds.includes("sport")) &&
+            (!props.checkedShop ||
+              !activitiesData.kinds.includes("tourist_facilities/shops"))
           ) {
             arrayAct.push(activitiesData);
           }

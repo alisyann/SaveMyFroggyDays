@@ -13,7 +13,6 @@ const App = () => {
   const [filterRest, setFilterRest] = useState(true);
   const [filterSport, setFilterSport] = useState(true);
   const [filterShop, setFilterShop] = useState(true);
-
   return (
     <div className="App">
       <Header />
@@ -31,7 +30,15 @@ const App = () => {
         passFilterShop={setFilterShop}
         filterShop={filterShop}
       />
-      <Result city={city} rain={rain} />
+      <Result
+        city={city}
+        rain={rain}
+        checkedAdult={filterAdult}
+        checkedRelig={filterRelig}
+        checkedRest={filterRest}
+        checkedSport={filterSport}
+        checkedShop={filterShop}
+      />
     </div>
   );
 };
