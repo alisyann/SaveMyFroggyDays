@@ -22,18 +22,17 @@ class Weather extends React.Component {
 
     const city = e.target.elements.city.value;
 
-
-  if (city) {
-    const apiCall = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}`
-    );
-    const response = await apiCall.json();
-    this.setState({ response: response });
-    this.props.passCity(this.state.response.name);
-  } else {
-    this.setState({ response: "error" });
-  }
-};
+    if (city) {
+      const apiCall = await fetch(
+        `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}`,
+      );
+      const response = await apiCall.json();
+      this.setState({ response: response });
+      this.props.passCity(this.state.response.name);
+    } else {
+      this.setState({ response: "error" });
+    }
+  };
 
   calcCelsius(temp) {
     let cels = Math.floor(temp - 273.15);
@@ -45,6 +44,16 @@ class Weather extends React.Component {
         <Search
           loadweather={this.getWeather}
           error={this.state.response === "error"}
+          passFilterAdult={this.props.passFilterAdult}
+          filterAdult={this.props.filterAdult}
+          passFilterRelig={this.props.passFilterRelig}
+          filterRelig={this.props.filterRelig}
+          passFilterRest={this.props.passFilterRest}
+          filterRest={this.props.filterRest}
+          passFilterSport={this.props.passFilterSport}
+          filterSport={this.props.filterSport}
+          passFilterShop={this.props.passFilterShop}
+          filterShop={this.props.filterShop}
         />
         {this.state.response.weather ? (
           <div className="barMeteo">
