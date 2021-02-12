@@ -51,14 +51,13 @@ const Result = (props) => {
               )) &&
             (!props.checkedAdult || !activitiesData.kinds.includes("adult")) &&
             (!props.checkedRelig ||
-              !activitiesData.kinds.includes("interesting_places/religion")) &&
-            (!props.checkedRest ||
-              !activitiesData.kinds.includes("tourist_facilities/foods")) &&
+              !activitiesData.kinds.includes("religion")) &&
+            (!props.checkedRest || !activitiesData.kinds.includes("foods")) &&
             (!props.checkedSport || !activitiesData.kinds.includes("sport")) &&
-            (!props.checkedShop ||
-              !activitiesData.kinds.includes("tourist_facilities/shops"))
+            (!props.checkedShop || !activitiesData.kinds.includes("shops"))
           ) {
             arrayAct.push(activitiesData);
+            console.log(activitiesData);
           }
           i++;
           setArrayActivities(arrayAct);
