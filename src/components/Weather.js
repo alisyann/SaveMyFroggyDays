@@ -48,6 +48,16 @@ class Weather extends React.Component {
         <Search
           loadweather={this.getWeather}
           error={this.state.response === "error"}
+          passFilterAdult={this.props.passFilterAdult}
+          filterAdult={this.props.filterAdult}
+          passFilterRelig={this.props.passFilterRelig}
+          filterRelig={this.props.filterRelig}
+          passFilterRest={this.props.passFilterRest}
+          filterRest={this.props.filterRest}
+          passFilterSport={this.props.passFilterSport}
+          filterSport={this.props.filterSport}
+          passFilterShop={this.props.passFilterShop}
+          filterShop={this.props.filterShop}
         />
         {this.state.response.weather ? (
           <div className="barMeteo">

@@ -1,4 +1,10 @@
-.filter{
+.filter-list-element {
+  list-style: none;
+}
+.filter-list-element:hover {
+  cursor: pointer;
+}
+/* .filter{
     width:70%;
     height: auto;
     display:flex;
@@ -6,7 +12,7 @@
     margin-top:20px;
     background:white;
     border-radius: 50px;
-    /* box-shadow: 2px 2px 5px lightgrey; */
+     box-shadow: 2px 2px 5px lightgrey;
 }
 
 .categories{
@@ -128,4 +134,4 @@ padding:0px;
 margin-left:0px;
 padding:0px;
 }
-}
+} */
