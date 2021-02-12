@@ -6,8 +6,11 @@ import Weather from "./components/Weather";
 
 // eslint-disable-next-line no-undef
 const App = () => {
+  
+
   const [city, setCity] = useState("");
   const [rain, setRain] = useState(false);
+  const [icon, setIcon] = useState("")
   const [filterAdult, setFilterAdult] = useState(false);
   const [filterRelig, setFilterRelig] = useState(true);
   const [filterRest, setFilterRest] = useState(true);
@@ -15,6 +18,7 @@ const App = () => {
   const [filterShop, setFilterShop] = useState(true);
   return (
     <div className="App">
+    <div className= {`i${icon}`} >
       <Header />
       <Weather
         passCity={setCity}
@@ -39,6 +43,7 @@ const App = () => {
         checkedSport={filterSport}
         checkedShop={filterShop}
       />
+      </div>
     </div>
   );
 };
