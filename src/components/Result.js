@@ -48,9 +48,16 @@ const Result = (props) => {
                 activitiesData.kinds.includes("historic") ||
                 activitiesData.kinds.includes("architecture") ||
                 activitiesData.kinds.includes("urban_environment")
-              ))
+              )) &&
+            (props.checkedAdult || !activitiesData.kinds.includes("adult")) &&
+            (props.checkedRelig ||
+              !activitiesData.kinds.includes("religion")) &&
+            (props.checkedRest || !activitiesData.kinds.includes("foods")) &&
+            (props.checkedSport || !activitiesData.kinds.includes("sport")) &&
+            (props.checkedShop || !activitiesData.kinds.includes("shops"))
           ) {
             arrayAct.push(activitiesData);
+            console.log(activitiesData);
           }
           i++;
           setArrayActivities(arrayAct);

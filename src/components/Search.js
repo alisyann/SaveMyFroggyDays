@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "./Search.css";
 import Img from "../Image/setting.png";
+
 import Image from "../Image/search.png";
 import Filter from "./Filter";
 import When from "./When";
+import * as AiIcons from "react-icons/ai";
+import * as BiIcons from "react-icons/bi";
 
 class Search extends React.Component {
   constructor(props) {
@@ -49,6 +52,38 @@ class Search extends React.Component {
   }
 
   render() {
+    const filters = [
+      {
+        checked: this.props.filterAdult,
+        filterName: "Adult",
+        filterPic: <AiIcons.AiFillHome />,
+        passChecked: this.props.passFilterAdult,
+      },
+      {
+        checked: this.props.filterRest,
+        filterName: "Food",
+        filterPic: <BiIcons.BiRestaurant />,
+        passChecked: this.props.passFilterRest,
+      },
+      {
+        checked: this.props.filterRelig,
+        filterName: "Religion",
+        filterPic: <BiIcons.BiChurch />,
+        passChecked: this.props.passFilterRelig,
+      },
+      {
+        checked: this.props.filterShop,
+        filterName: "Shopping",
+        filterPic: <AiIcons.AiFillShopping />,
+        passChecked: this.props.passFilterShop,
+      },
+      {
+        checked: this.props.filterSport,
+        filterName: "Sport",
+        filterPic: <BiIcons.BiRun />,
+        passChecked: this.props.passFilterSport,
+      },
+    ];
     return (
       <div id="searchFunction">
         <p className="discoverActivity">Discover Your Activity</p>
@@ -95,7 +130,19 @@ class Search extends React.Component {
             </div>
           </div>
           {this.state.showwhen ? <When /> : null}
-          {this.state.show ? <Filter /> : null}
+          {this.state.show ? (
+            <ul>
+              {filters.map((f, i) => (
+                <Filter
+                  key={f.filterName + i}
+                  checked={f.checked}
+                  filterName={f.filterName}
+                  filterPic={f.filterPic}
+                  passChecked={f.passChecked}
+                />
+              ))}
+            </ul>
+          ) : null}
           <button type="submit" id="send">
             {" "}
             Search
