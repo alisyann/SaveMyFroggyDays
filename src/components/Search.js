@@ -3,7 +3,7 @@ import "./Search.css";
 import Img from "../Image/setting.png";
 import Image from "../Image/search.png";
 import Filter from "./Filter";
-import When from "./When";
+import Picker from "./Picker";
 
 class Search extends React.Component {
   constructor(props) {
@@ -94,7 +94,7 @@ class Search extends React.Component {
               ></img>
             </div>
           </div>
-          {this.state.showwhen ? <When /> : null}
+          {this.state.showwhen ? <Picker /> : null}
           {this.state.show ? <Filter /> : null}
           <button type="submit" id="send">
             {" "}
@@ -114,3 +114,4 @@ function error() {
 }
 
 export default Search;
+

@@ -21,4 +21,4 @@ import './When.css';
  )
  }
 
-export default When;
+// export default When;
