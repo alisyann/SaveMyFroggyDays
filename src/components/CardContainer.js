@@ -9,7 +9,7 @@ const CardContainer = props => {
         <li
           className="listCard"
           key={i}
-          onClick={() => window.open(act.wikipedia)}
+          onClick={() => act.url ?  window.open(act.url) : act.wikipedia ? window.open(act.wikipedia) : window.alert("sorry")}
         >
           <div className="card">
             <div className="cardContent">
