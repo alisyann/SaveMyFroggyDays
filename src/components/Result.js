@@ -80,7 +80,7 @@ const Result = (props) => {
           setArrayActivities([...arrayActivities, ...arrayAct]);
           setLoading(false);
           setLoading(true);
-        }, 2000);
+        }, 1000);
       }
     }
     if (props.city === "404") return;
