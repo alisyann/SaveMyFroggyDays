@@ -19,6 +19,7 @@ const App = () => {
       <div className={`i${icon}`}>
         <Header />
         <Weather
+          city={city}
           passCity={setCity}
           passRain={setRain}
           passFilterAdult={setFilterAdult}

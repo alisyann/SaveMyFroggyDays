@@ -12,6 +12,7 @@ const Result = (props) => {
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
   const [city, setCity] = useState("");
+  const [rain, setRain] = useState(props.rain);
   const inter = useRef(null);
   const clear = () => {
     window.clearInterval(inter.current);
@@ -28,10 +29,11 @@ const Result = (props) => {
         const { lat, lon } = coordsCity;
         clear();
 
-        if (city !== props.city) {
+        if (city !== props.city || rain !== props.rain) {
           // when the user makes a new research, reset
           setOffset(0);
           setCity(props.city);
+          setRain(props.rain);
           setArrayActivities([]);
         }
 
