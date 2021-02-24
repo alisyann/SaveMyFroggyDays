@@ -1,15 +1,18 @@
 import "./CardContainer.css";
-import Img from "../Image/iconWiki.png";
+import ImgWiki from "../Image/iconWiki.png";
+import ImgWeb from "../Image/domain.png";
 const CardContainer = props => {
+
   const printActivities = props.arrayActivities ? (
     props.arrayActivities === "404" ? (
       <h2 id="error404">Sorry we did not find any city with that name 🐸</h2>
     ) : (
       props.arrayActivities.map((act, i) => (
-        <li
+        act.url || act.wikipedia ? 
+        (<li
           className="listCard"
           key={i}
-          onClick={() => window.open(act.wikipedia)}
+          onClick={() => act.url ?  window.open(act.url) : act.wikipedia ? window.open(act.wikipedia) : console.log('Sorry')}
         >
           <div className="card">
             <div className="cardContent">
@@ -21,13 +24,13 @@ const CardContainer = props => {
               <div className="titre">
                 <h3>{act.name}</h3>
                 <div className="logo">
-                  <img className="logoImg" src={Img} alt="Icone Wikipedia" />
-                  <p>Wikipédia</p>
+                  {act.url ? (<img className="logoImg" src={ImgWeb} alt="Website" />) : act.wikipedia ? (<img className="logoImg" src={ImgWiki} alt="Wikipedia" />) : null }
+                  <p>{act.url ? 'Website' : act.wikipedia ? "Wikipedia" : 'No website or wikipedia page available'}</p>
                 </div>
               </div>
             </div>
           </div>
-        </li>
+        </li>) : null 
       ))
     )
   ) : null;

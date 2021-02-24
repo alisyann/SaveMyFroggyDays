@@ -1,8 +1,9 @@
 import React from "react";
 import "./Weather.css";
+import apiKey from './ApiKeyMeteo';
 
 import Search from "./Search";
-//api call api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=9d986c82c3977e89a2551fa521df3cb1
+
 
 class Weather extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class Weather extends React.Component {
 
   getWeather = async (e) => {
     e.preventDefault();
-    const apiKey = "9d986c82c3977e89a2551fa521df3cb1";
+    
 
     const city = e.target.elements.city.value;
 
