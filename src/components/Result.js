@@ -12,13 +12,11 @@ const Result = (props) => {
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
   const [city, setCity] = useState("");
-  const [end, setEnd] = useState("");
   const inter = useRef(null);
-  // Bon le but du jeu c'est de trouver quelle est la condition de fin de votre setInterval une fois qu'on aura ça on va  changer la state fin   si on a ça on est ok partout car on pourra dire si end est égal égal à true  tu clear
   const clear = () => {
-    console.log("end of activities", inter.current, arrayActivities);
     window.clearInterval(inter.current);
   };
+
   useEffect(() => {
     async function request(props, offset) {
       let arrayAct = [];
@@ -28,6 +26,14 @@ const Result = (props) => {
       if (coordsCity.hasOwnProperty("error")) arrayAct = "404";
       else {
         const { lat, lon } = coordsCity;
+        clear();
+
+        if (city !== props.city) {
+          // when the user makes a new research, reset
+          setOffset(0);
+          setCity(props.city);
+          setArrayActivities([]);
+        }
 
         // can't forEach when using async funcions;
         //for (let i = 0; i < listActivities.length; i++)
@@ -36,13 +42,10 @@ const Result = (props) => {
           const listActivities = await fetch(
             `https://api.opentripmap.com/0.1/en/places/radius?apikey=${APIKEY}&radius=${radius}&limit=${limit}&offset=${offset}&lon=${lon}&lat=${lat}&rate=1&format=json`,
           ).then((res) => res.json());
-          if (!listActivities[i]) {
-            // console.log("chicken", props, listActivities[i].xid, inter);
-            console.log("yolo");
-            clearInterval(inter.current);
+          if (!listActivities[i] || listActivities.length === 0) {
+            clear();
             return;
           }
-          console.log("nique ta mere ");
           const activitiesData = await fetch(
             `https://api.opentripmap.com/0.1/en/places/xid/${listActivities[i].xid}?apikey=${APIKEY}`,
           ).then((res) => res.json());
@@ -74,16 +77,10 @@ const Result = (props) => {
 
           i++;
           setOffset(offset + 1);
-          // if(props.city === city)
           setArrayActivities([...arrayActivities, ...arrayAct]);
-          // console.log(arrayActivities);
           setLoading(false);
           setLoading(true);
-          setCity(props.city);
         }, 2000);
-        // console.log("ici c");
-        // if(listActivities[i])
-        //   clear();
       }
     }
     if (props.city === "404") return;
@@ -92,18 +89,8 @@ const Result = (props) => {
     };
     fetchData();
   }, [arrayActivities, props]);
-  // useEffect(() => {
-  //   clearInterval(inter);
-  // }, [props]);
+
   useEffect(() => {}, [loading]);
-  // useEffect(() => {
-  //   console.log("city :", city);
-  //   setArrayActivities([]);
-  // }, [city]);
-  // useEffect(() => {
-  //   setPrevCity(props.city);
-  //   console.log("poulet 001:", props.city);
-  // }, []);
 
   return (
     <div className="searchAndResult">
