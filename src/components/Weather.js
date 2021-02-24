@@ -2,7 +2,7 @@ import React from "react";
 import "./Weather.css";
 
 import Search from "./Search";
-//api call api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=9d986c82c3977e89a2551fa521df3cb1
+
 
 class Weather extends React.Component {
   constructor(props) {
@@ -11,11 +11,7 @@ class Weather extends React.Component {
       response: false,
     };
   }
-  //   minMaxTemp(min, max){
-  //     // if (min && max) {
-  //     //     return (<span className='minMaxTemp'>{props.tempMin}&deg; / {props.tempMax}&deg; </span>)
-  //     // }
-  // };
+
   getWeather = async (e) => {
     e.preventDefault();
     const apiKey = "9d986c82c3977e89a2551fa521df3cb1";
@@ -45,7 +41,7 @@ class Weather extends React.Component {
         <Search
           loadweather={this.getWeather}
           error={this.state.response === "error"}
-        />
+       />
         {this.state.response.weather ? (
           <div className="barMeteo">
             <div className="iconAndDescription">
