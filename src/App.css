@@ -62,3 +62,7 @@
   height: auto;
   width: auto;
   }
+  .i01d, .i01n, .i02d, .i02n, .i03d, .i03n, .i04d, .i04n, .i09d, .i09n, .i10d, .i10n, .i11d, .i11n, .i13d, .i13n, .i50d, .i50n{
+    background:no-repeat center fixed;
+    background-size: cover;
+  }

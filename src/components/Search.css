@@ -204,6 +204,11 @@ button:focus{
     border-radius:5%;
   }
 
+  .dropdownLater{
+    background:#9DCC3A;
+    outline:none
+  }
+
   #setting {
     width: 35px;
     height: 35px;
@@ -225,6 +230,9 @@ button:focus{
     font-size:100%;
     margin-top:10px;
     margin-bottom:15px;
+  }
+  .i01d, .i01n, .i02d, .i02n, .i03d, .i03n, .i04d, .i04n, .i09d, .i09n, .i10d, .i10n, .i11d, .i11n, .i13d, .i13n, .i50d, .i50n{
+    background:none;
   }
 }
 .i01d, .i01n{
@@ -250,37 +258,45 @@ button:focus{
   background: url("/src/Image/backgroundImg/Brokken clouds.jpg");
   height: auto;
   width: auto;
+  background: fixed center no-repeat;
   }
 
 .i09d, .i09n {
   background: url("/src/Image/backgroundImg/shower rain.jpg");
   height: auto;
   width: auto;
+  background: fixed center no-repeat;
   }
 
 .i10d, .i10n {
   background: url("/src/Image/backgroundImg/rain.jpg");
   height: auto;
   width: auto;
+  background: fixed center no-repeat;
   }
 
 .i11d, .i11n {
   background: url("/src/Image/backgroundImg/thunderstorm.jpg");
   height: auto;
   width: auto;
+  background: fixed center no-repeat;
   }
 
   .i13d, .i13n {
     background: url("/src/Image/backgroundImg/snow.jpg");
     height: auto;
     width: auto;
+    background: fixed center no-repeat;
   }
 
 .i50d, .i50n {
   background: url("/src/Image/backgroundImg/mist.jpg");
   height: auto;
   width: auto;
+  background: fixed center no-repeat;
   }
+  
+  
   .filterContainer{
     display: flex;
     margin-top: 50px;

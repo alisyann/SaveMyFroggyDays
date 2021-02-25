@@ -73,6 +73,12 @@
 }
 @media (max-width: 500px) {
   .card {
-    margin: 0px;
+    margin: 20px;
+  }
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
   }
 }

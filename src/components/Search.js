@@ -37,6 +37,7 @@ const Search = (props) => {
   };
 
   const search = (evt) => {
+    if (!cityName) return;
     //weatherbis
     fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`,
@@ -148,7 +149,7 @@ const Search = (props) => {
 
           <div className="when">
             {" "}
-            <span className="letsGo">LET'S GO!</span>
+            <span className="letsGo">GO!</span>
             <p>Later</p>
             <input
               id="later"
@@ -169,6 +170,7 @@ const Search = (props) => {
                     setDropdown(e.target.value);
                     setDay(e.target.value);
                   }}
+                  className='dropdownLater'
                 >
                   <option value={localString(tomorrow)}>Tomorrow</option>
                   <option value={localString(dayTwo)}>dans 2 jours</option>

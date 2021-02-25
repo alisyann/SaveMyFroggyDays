@@ -105,7 +105,7 @@ class Weather extends React.Component {
         ) : this.state.later && this.state.meteoLater ? (
           <div className="barMeteo">
             <>
-            <div className={`i${this.props.icon}`}>
+            <div>
             <div className="iconAndDescription">
               
               <span className="meteoIcon">
