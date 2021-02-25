@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import CardContainer from "./CardContainer";
-import APIKEY from './ApiKeyTourism';
-import "./Result.css";
 
+import "./Result.css";
+const APIKEY = "5ae2e3f221c38a28845f05b60cb2319b223eb39d80cef2c05a262216";
 const limit = 1;
 const radius = 1000; // in meters
 
@@ -12,6 +12,7 @@ const Result = (props) => {
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
   const [city, setCity] = useState("");
+  const [rain, setRain] = useState(props.rain);
   const inter = useRef(null);
   const clear = () => {
     window.clearInterval(inter.current);
@@ -28,10 +29,11 @@ const Result = (props) => {
         const { lat, lon } = coordsCity;
         clear();
 
-        if (city !== props.city) {
+        if (city !== props.city || rain !== props.rain) {
           // when the user makes a new research, reset
           setOffset(0);
           setCity(props.city);
+          setRain(props.rain);
           setArrayActivities([]);
         }
 
@@ -111,3 +113,4 @@ const Result = (props) => {
   );
 };
 export default Result;
+
