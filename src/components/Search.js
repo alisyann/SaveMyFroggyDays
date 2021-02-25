@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "./Search.css";
 import Img from "../Image/setting.png";
-
-import Image from "../Image/search.png";
+import apiKey from "./ApiKeyMeteo";
 import Filter from "./Filter";
 import * as AiIcons from "react-icons/ai";
 import * as BiIcons from "react-icons/bi";
 
 const Search = (props) => {
-  const apiKey = "9d986c82c3977e89a2551fa521df3cb1";
-
   const [cityName, setCityName] = useState("");
   const [show, setShow] = useState(false);
   const [showwhen, setShowwhen] = useState(false);
-  ////////////////////////////////
   const [meteo, setMeteo] = useState([]);
   const [dropdown, setDropdown] = useState("Tomorrow");
   const [day, setDay] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [meteoT, setMeteoT] = useState(null);
-  ///////////////////
+
   const getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(getCoordinates);
@@ -32,7 +26,6 @@ const Search = (props) => {
   }, []);
 
   const getCoordinates = (position) => {
-    console.log(position.coords.latitude, position.coords.longitude);
     const city = fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`,
     )
@@ -55,7 +48,6 @@ const Search = (props) => {
         props.passCity(cityName);
       })
       .then((res) => {
-        console.log(meteo);
         if (res) props.passCity(res.city.name);
       });
   };
@@ -63,13 +55,6 @@ const Search = (props) => {
   useEffect(() => {
     props.passCity("");
     props.passCity(cityName);
-    setMeteoT(
-      meteo.find(
-        (meteoInTime) =>
-          meteoInTime.dt_txt.includes("12:00:00") &&
-          dtToDate(meteoInTime.dt).includes(day),
-      ),
-    );
     props.passMeteoLater(
       meteo.find(
         (meteoInTime) =>
@@ -77,10 +62,6 @@ const Search = (props) => {
           dtToDate(meteoInTime.dt).includes(day),
       ),
     );
-
-    setLoading(true);
-    console.log("meteo load");
-    console.log(meteo);
   }, [meteo, day]);
 
   let today = new Date();
@@ -98,7 +79,6 @@ const Search = (props) => {
   dayFour.setDate(today.getDate() + 4);
 
   const localString = (date) => {
-    //    setDay(date.toLocaleDateString())
     return date.toLocaleDateString();
   };
 
@@ -176,6 +156,7 @@ const Search = (props) => {
               onChange={() => {
                 setShowwhen(!showwhen);
                 props.toggleLater();
+                search();
               }}
             />
           </div>
@@ -197,7 +178,7 @@ const Search = (props) => {
                 <select
                   value={dropdown}
                   onChange={(e) => {
-                    setDropdown(console.log(e.target.value));
+                    setDropdown(e.target.value);
                     setDay(e.target.value);
                   }}
                 >
@@ -226,7 +207,6 @@ const Search = (props) => {
         <button type="submit" id="send">
           {" "}
           Search
-          {/* <img src={Image} alt="logo search" id="search"></img> */}
         </button>
         <div className="errorWeather">{props.error ? error() : null}</div>
       </form>

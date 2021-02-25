@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./Filter.css";
-//import { IconContext } from "react-icons";
-
-//      <IconContext.Provider value = {{color:'#9dcc3a'}}>
 
 const Filter = (props) => {
   const [checked, setChecked] = useState(props.checked);

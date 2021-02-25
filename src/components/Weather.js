@@ -1,9 +1,8 @@
 import React from "react";
 import "./Weather.css";
-import apiKey from './ApiKeyMeteo';
+import apiKey from "./ApiKeyMeteo";
 
 import Search from "./Search";
-
 
 class Weather extends React.Component {
   constructor(props) {
@@ -17,7 +16,6 @@ class Weather extends React.Component {
 
   getWeather = async (e) => {
     e.preventDefault();
-    
 
     const city = e.target.elements.city.value;
 
@@ -48,7 +46,6 @@ class Weather extends React.Component {
   setMeteoLater = (meteo) => {
     if (meteo) {
       this.setState({ meteoLater: meteo });
-      //   this.props.passCity(meteo.name);
       this.props.passIcon(meteo.weather[0].icon);
       this.props.passRain(meteo.weather[0].description.includes("rain"));
     }
@@ -77,7 +74,7 @@ class Weather extends React.Component {
           passMeteoLater={this.setMeteoLater}
           passCity={this.props.passCity}
         />
-        {this.state.response.weather ? (
+        {this.state.response.weather && !this.state.later ? (
           <div className="barMeteo">
             <div className="iconAndDescription">
               <span className="meteoIcon">
