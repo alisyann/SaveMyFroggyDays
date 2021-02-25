@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import CardContainer from "./CardContainer";
+import APIKEY from "./ApiKeyTourism";
 
 import "./Result.css";
-const APIKEY = "5ae2e3f221c38a28845f05b60cb2319b223eb39d80cef2c05a262216";
 const limit = 1;
 const radius = 1000; // in meters
 
@@ -37,8 +37,7 @@ const Result = (props) => {
           setArrayActivities([]);
         }
 
-        // can't forEach when using async funcions;
-        //for (let i = 0; i < listActivities.length; i++)
+        // can't forEach when using async funcions
         let i = 0;
         inter.current = setInterval(async function () {
           const listActivities = await fetch(
@@ -113,4 +112,3 @@ const Result = (props) => {
   );
 };
 export default Result;
-
