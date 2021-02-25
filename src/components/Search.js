@@ -127,7 +127,7 @@ const Search = (props) => {
     },
   ];
   return (
-    <div id="searchFunction">
+    <div id="searchFunction" className={`i${props.icon}`}>
       <p className="discoverActivity">Discover Your Activity</p>
       <p className="descriptionDiscover">
         Even if the weather is bad, there is an activity for you!
@@ -159,19 +159,7 @@ const Search = (props) => {
                 search();
               }}
             />
-          </div>
-
-          <div id="filterDescription">
-            <p id="textFilter"> Categories</p>
-            <img
-              src={Img}
-              alt="setting"
-              id="setting"
-              onClick={() => setShow(!show)}
-            ></img>
-          </div>
-        </div>
-        {showwhen ? (
+             {showwhen ? (
           <div>
             <div>
               <div>
@@ -191,8 +179,21 @@ const Search = (props) => {
             </div>
           </div>
         ) : null}
+          </div>
+
+          <div id="filterDescription">
+            <p id="textFilter"> Categories</p>
+            <img
+              src={Img}
+              alt="setting"
+              id="setting"
+              onClick={() => setShow(!show)}
+            ></img>
+          </div>
+        </div>
+        
         {show ? (
-          <ul>
+          <ul className= "filterContainer">
             {filters.map((f, i) => (
               <Filter
                 key={f.filterName + i}

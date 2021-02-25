@@ -1,5 +1,6 @@
 .filter-list-element {
   list-style: none;
+  padding: 20px;
 }
 .filter-list-element:hover {
   cursor: pointer;
