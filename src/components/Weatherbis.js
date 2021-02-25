@@ -4,34 +4,32 @@ import Search from './Search'
 const apiKey = '3ab8eebb78097ae35ae801f42442c34d'
 
 const Weatherbis = (props) => {
-    const [query, setQuery] = useState('')
+
     const [meteo, setMeteo] = useState([])
-    const [dropdown, setDropdown] = useState("Tomorrow")
+    const [dropdown, setDropdown] = useState("")
     const [day, setDay]= useState([])
     const [loading, setLoading] = useState(false);
     const [meteoT, setMeteoT] = useState(null);
+    const[selected, setSelected]= useState(false)
 
+useEffect(() => { fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}`)
+.then(res => res.json())
 
-    const search = evt => {
-        if (evt.key === 'Enter')
-        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${query}&appid=${apiKey}`)
+.then(res => { setMeteo(res.list)})},[props.city])
+
+/*if (props.city){
+        const vaChercherCetteMeteo = async()=>{
+       
+      //  const search = (props) => {
+        await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}`)
         .then(res => res.json())
-        .then(result => {
 
-            setMeteo(result.list)
-        })
-        .then(res=>{
-
-            console.log(meteo)
-            setQuery('');
-            this.props.passCity(res.city.name);
-            
-        })
-        }
-
-            useEffect(() => {setMeteoT(meteo
+        .then(result => { setMeteo(res.list)})
+    }}*/
+        
+           useEffect(() => {setMeteoT(meteo
                 .find(meteoInTime=> (meteoInTime.dt_txt.includes('12:00:00'))
-               && dtToDate(meteoInTime.dt).includes(day))); setLoading(true);console.log('meteo load')}, [meteo, day]);
+               && dtToDate(meteoInTime.dt).includes(day))); setLoading(true);}, [meteo, day]);
 
     let today = new Date()
 
@@ -58,21 +56,17 @@ return new Date(dt*1000).toLocaleString()
 }
 
     return (
+        
      <div>
-        {meteoT? <Search />: null}
+       
         <div>
            
-            <input
-            onChange={e => setQuery(e.target.value)}
-            value={query}
-            onKeyPress={search}>
-            </input>
-            <div>
-         <select value={dropdown} onChange={(e)=>{setDropdown(console.log(e.target.value)); setDay(e.target.value)}}>
+         <div>
+         <select value={dropdown} onChange={(e)=>{setDropdown((e.target.value)); setDay(e.target.value)}}>
         <option value={localString(tomorrow)} >Tomorrow</option>
         <option value={localString(dayTwo)} >dans 2 jours</option>
-        <option value={localString(dayThree)}>dans 3 jours</option>
-        <option value={localString(dayFour)}>dans 4 jours</option>
+        <option value={localString(dayThree)} >dans 3 jours</option>
+        <option value={localString(dayFour)} >dans 4 jours</option>
         </select>
          </div>
         </div>
@@ -86,7 +80,7 @@ return new Date(dt*1000).toLocaleString()
         id="iconMeteo"
         alt={meteoT.weather[0].description}/>
         </div>) 
-       : ('')
+       : console.log(dropdown) // ('')
         }
    </div>
         

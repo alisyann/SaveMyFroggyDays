@@ -12,7 +12,7 @@ class Weather extends React.Component {
     };
   }
 
-  getWeather = async (e) => {
+/* getWeather = async (e) => {
     e.preventDefault();
     const apiKey = "9d986c82c3977e89a2551fa521df3cb1";
 
@@ -29,43 +29,45 @@ class Weather extends React.Component {
   } else {
     this.setState({ response: "error" });
   }
-};
+};*/
 
   calcCelsius(temp) {
     let cels = Math.floor(temp - 273.15);
     return cels;
   }
   render() {
+    
     return (
       <div className="containerMeteo">
-        <Search
+       {/* <Search
           loadweather={this.getWeather}
           error={this.state.response === "error"}
-       />
-        {this.state.response.weather ? (
+       />*/}
+        {this.props.response? (
           <div className="barMeteo">
             <div className="iconAndDescription">
               <span className="meteoIcon">
                 <img
-                  src={`http://openweathermap.org/img/wn/${this.state.response.weather[0].icon}.png`}
-                  className={this.state.response.weather[0].icon}
+                  src={`http://openweathermap.org/img/wn/${this.props.response.weather[0].icon}.png`}
+                  className={this.props.response.weather[0].icon}
                   id="iconMeteo"
-                  alt={this.state.response.weather[0].description}
+                  alt={this.props.response.weather[0].description}
                 />
               </span>
             </div>
 
             <div className="cityAndDeg">
-              <p className="cityMeteo">{this.state.response.name}</p>
+              <p className="cityMeteo">{this.props.response.name}</p>
               <p className="descriptionMeteo">
-                {this.state.response.weather[0].description}
+                {this.props.response.weather[0].description}
               </p>
               <span className="temperatureMeteo">
-                {this.calcCelsius(this.state.response.main.temp)}&deg;
+                {this.calcCelsius(this.props.response.main.temp)}&deg;
               </span>
             </div>
           </div>
         ) : null}
+        
       </div>
     );
   }
