@@ -56,7 +56,7 @@ const Search = (props) => {
   useEffect(() => {
     props.passCity("");
     props.passCity(cityName);
-    props.passMeteoLater(
+    if (meteo) props.passMeteoLater(
       meteo.find(
         (meteoInTime) =>
           meteoInTime.dt_txt.includes("12:00:00") &&
