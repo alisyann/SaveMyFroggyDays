@@ -53,6 +53,7 @@ class Weather extends React.Component {
 
   render() {
     return (
+    <div className={`i${this.props.icon}`}>
       <div className="containerMeteo">
         <div className="poulet"></div>
         <Search
@@ -73,10 +74,13 @@ class Weather extends React.Component {
           toggleLater={this.toggleLater}
           passMeteoLater={this.setMeteoLater}
           passCity={this.props.passCity}
+         icon={this.props.icon}
         />
         {this.state.response.weather && !this.state.later ? (
           <div className="barMeteo">
-            <div className="iconAndDescription">
+            <>
+            {/*<div  className={`i${this.props.icon}`>*/}
+            <div className="iconAndDescription" >
               <span className="meteoIcon">
                 <img
                   src={`http://openweathermap.org/img/wn/${this.state.response.weather[0].icon}.png`}
@@ -85,7 +89,9 @@ class Weather extends React.Component {
                   alt={this.state.response.weather[0].description}
                 />
               </span>
-            </div>
+              </div>
+          
+            </>
             <div className="cityAndDeg">
               <p className="cityMeteo">{this.state.response.name}</p>
               <p className="descriptionMeteo">
@@ -98,7 +104,10 @@ class Weather extends React.Component {
           </div>
         ) : this.state.later && this.state.meteoLater ? (
           <div className="barMeteo">
+            <>
+            <div>
             <div className="iconAndDescription">
+              
               <span className="meteoIcon">
                 <img
                   src={`http://openweathermap.org/img/wn/${this.state.meteoLater.weather[0].icon}.png`}
@@ -107,7 +116,9 @@ class Weather extends React.Component {
                   alt={this.state.meteoLater.weather[0].description}
                 />
               </span>
+              </div>
             </div>
+            </>
             <div className="cityAndDeg">
               {<p className="cityMeteo">{this.props.city}</p>}
               <p className="descriptionMeteo">
@@ -119,6 +130,7 @@ class Weather extends React.Component {
             </div>
           </div>
         ) : null}
+      </div>
       </div>
     );
   }

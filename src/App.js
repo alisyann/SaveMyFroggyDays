@@ -16,7 +16,7 @@ const App = () => {
   const [filterShop, setFilterShop] = useState(true);
   return (
     <div className="App">
-      <div className={`i${icon}`}>
+      <div >
         <Header />
         <Weather
           city={city}
@@ -33,6 +33,7 @@ const App = () => {
           passFilterShop={setFilterShop}
           filterShop={filterShop}
           passIcon={setIcon}
+          icon={icon}
         />
         <Result
           city={city}

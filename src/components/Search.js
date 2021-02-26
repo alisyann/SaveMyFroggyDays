@@ -37,6 +37,7 @@ const Search = (props) => {
   };
 
   const search = (evt) => {
+    if (!cityName) return;
     //weatherbis
     fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`,
@@ -127,7 +128,7 @@ const Search = (props) => {
     },
   ];
   return (
-    <div id="searchFunction">
+    <div id="searchFunction" className={`i${props.icon}`}>
       <p className="discoverActivity">Discover Your Activity</p>
       <p className="descriptionDiscover">
         Even if the weather is bad, there is an activity for you!
@@ -148,7 +149,7 @@ const Search = (props) => {
 
           <div className="when">
             {" "}
-            <span className="letsGo">LET'S GO!</span>
+            <span className="letsGo">GO!</span>
             <p>Later</p>
             <input
               id="later"
@@ -159,6 +160,27 @@ const Search = (props) => {
                 search();
               }}
             />
+             {showwhen ? (
+          <div>
+            <div>
+              <div>
+                <select
+                  value={dropdown}
+                  onChange={(e) => {
+                    setDropdown(e.target.value);
+                    setDay(e.target.value);
+                  }}
+                  className='dropdownLater'
+                >
+                  <option value={localString(tomorrow)}>Tomorrow</option>
+                  <option value={localString(dayTwo)}>dans 2 jours</option>
+                  <option value={localString(dayThree)}>dans 3 jours</option>
+                  <option value={localString(dayFour)}>dans 4 jours</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        ) : null}
           </div>
 
           <div id="filterDescription">
@@ -171,28 +193,9 @@ const Search = (props) => {
             ></img>
           </div>
         </div>
-        {showwhen ? (
-          <div>
-            <div>
-              <div>
-                <select
-                  value={dropdown}
-                  onChange={(e) => {
-                    setDropdown(e.target.value);
-                    setDay(e.target.value);
-                  }}
-                >
-                  <option value={localString(tomorrow)}>Tomorrow</option>
-                  <option value={localString(dayTwo)}>dans 2 jours</option>
-                  <option value={localString(dayThree)}>dans 3 jours</option>
-                  <option value={localString(dayFour)}>dans 4 jours</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        ) : null}
+        
         {show ? (
-          <ul>
+          <ul className= "filterContainer">
             {filters.map((f, i) => (
               <Filter
                 key={f.filterName + i}
