@@ -11,11 +11,13 @@
 .discoverActivity{
   font-size:50px;
   font-weight: bold;
-  color:#b3b0b0;
+  color:#ffffff;
+  text-shadow: black 2px 2px;
   margin:0px;
 }
 .descriptionDiscover{
-color:#b3b0b0;
+color:#ffffff;
+text-shadow: black 1px 1px;
 font-weight: bold;
 margin-bottom:30px;
 }
@@ -241,6 +243,7 @@ button:focus{
   width: 100%;
   height:auto;
   background-size: cover;
+ 
   }
 
 .i02d, .i02n{
@@ -248,6 +251,7 @@ button:focus{
   width: 100%;
   height:auto;
   background-size: cover;
+
     }
 
 .i03d, .i03n{
@@ -255,6 +259,7 @@ button:focus{
   height: 100%;
   width: 100%;
   background-size: cover;
+
       }
 
 .i04d, .i04n {
@@ -262,6 +267,7 @@ button:focus{
   height: auto;
   width: auto;
   background-size: cover;
+
   }
 
 .i09d, .i09n {
@@ -269,6 +275,7 @@ button:focus{
   height: auto;
   width: auto;
   background-size: cover;
+
   }
 
 .i10d, .i10n {
@@ -276,6 +283,7 @@ button:focus{
   height: auto;
   width: auto;
   background-size: cover;
+
 }
 
 .i11d, .i11n {
@@ -283,6 +291,7 @@ button:focus{
   height: auto;
   width: auto;
   background-size: cover;
+
   }
 
   .i13d, .i13n {
@@ -290,6 +299,7 @@ button:focus{
     height: auto;
     width: auto;
     background-size: cover;
+ 
   }
 
 .i50d, .i50n {
@@ -297,6 +307,7 @@ button:focus{
   height: auto;
   width: auto;
   background-size: cover;
+
   }
   
   
@@ -308,4 +319,5 @@ button:focus{
     border-radius:50px;
     justify-content: space-around;
     background-size: cover;
+    
   }
