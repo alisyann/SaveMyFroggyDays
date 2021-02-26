@@ -25,11 +25,14 @@ class Weather extends React.Component {
       );
       const response = await apiCall.json();
       this.setState({ response: response });
-      this.props.passCity(this.state.response.name);
-      this.props.passIcon(this.state.response.weather[0].icon);
-      this.props.passRain(
-        this.state.response.weather[0].description.includes("rain"),
-      );
+      if (this.state.response.name)
+        this.props.passCity(this.state.response.name);
+      if (this.state.response.weather) {
+        this.props.passIcon(this.state.response.weather[0].icon);
+        this.props.passRain(
+          this.state.response.weather[0].description.includes("rain"),
+        );
+      }
     } else {
       this.setState({ response: "error" });
     }
